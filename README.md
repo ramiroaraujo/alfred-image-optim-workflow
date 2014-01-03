@@ -1,0 +1,2 @@
+alfred-image-optim-workflow
+===========================
