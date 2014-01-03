@@ -1,0 +1,22 @@
+## workflow build config
+
+# id and name for the workflow (bundle id = domain.id)
+id: alfred-ruby-template
+
+# base domain
+domain: com.tumblr.ramiroaraujo
+
+name: Ruby Based Workflow Template
+description: A starting place for developing Ruby based workflow in Alfred
+created_by: Ramiro Araujo
+website: https://github.com/ramiroaraujo/alfred-ruby-template
+readme: readme
+
+## development config
+
+# path is the relative path to the workflow in the project root
+path: workflow
+
+# If you are using Alfred's advanced Dropbox sync, indicate the path shown in
+# Alfred Preferences > Advanced > Syncing:
+dropbox: ~/Dropbox
