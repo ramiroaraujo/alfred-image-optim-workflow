@@ -1,13 +1,13 @@
 ## workflow build config
 
 # id and name for the workflow (bundle id = domain.id)
-id: alfred-ruby-template
+id: alfred-image-optim
 
 # base domain
 domain: com.tumblr.ramiroaraujo
 
-name: Ruby Based Workflow Template
-description: A starting place for developing Ruby based workflow in Alfred
+name: Optimize Images
+description: Image optimization workflow based on ImageOptim-CLI (https://github.com/JamieMason/ImageOptim-CLI) from Jamie Mason.
 created_by: Ramiro Araujo
 website: https://github.com/ramiroaraujo/alfred-ruby-template
 readme: readme

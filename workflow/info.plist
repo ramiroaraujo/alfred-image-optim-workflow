@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.tumblr.ramiroaraujo.alfred-ruby-template</string>
+	<string>com.tumblr.ramiroaraujo.alfred-image-optim</string>
 	<key>connections</key>
 	<dict>
-		<key>21557827-8003-42B7-A042-16D4C9278FEC</key>
+		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>42D05639-3F0F-4760-8214-317167E4173D</string>
+				<string>E80424D6-185B-48E5-B238-0FA83AB3DBA8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
 			</dict>
 		</array>
-		<key>BA17BE41-176A-4E9A-B958-A3F0BEA36829</key>
+		<key>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>42D05639-3F0F-4760-8214-317167E4173D</string>
+				<string>17C9CDD2-6EE2-457F-AF3F-1E0A5869E53E</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -32,39 +40,36 @@
 	<key>createdby</key>
 	<string>Ramiro Araujo</string>
 	<key>description</key>
-	<string>A starting place for developing Ruby based workflow in Alfred</string>
+	<string>Image optimization workflow based on ImageOptim-CLI (https://github.com/JamieMason/ImageOptim-CLI) from Jamie Mason.</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Ruby Based Workflow Template</string>
+	<string>Image Optimization</string>
 	<key>objects</key>
 	<array>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>62</integer>
-				<key>keyword</key>
-				<string>test feedback</string>
-				<key>runningsubtext</key>
-				<string>working...</string>
-				<key>script</key>
-				<string>/usr/bin/ruby ./main.rb {query}</string>
-				<key>subtext</key>
-				<string>Ruby Based Workflow Template</string>
-				<key>title</key>
-				<string>Test Alfred Feedback</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
+				<key>acceptsmulti</key>
 				<true/>
+				<key>filetypes</key>
+				<array>
+					<string>com.compuserve.gif</string>
+					<string>com.microsoft.bmp</string>
+					<string>com.truevision.tga-image</string>
+					<string>public.jpeg</string>
+					<string>public.png</string>
+					<string>public.tiff</string>
+				</array>
+				<key>name</key>
+				<string>Optimize Images</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
+			<string>alfred.workflow.trigger.action</string>
 			<key>uid</key>
-			<string>21557827-8003-42B7-A042-16D4C9278FEC</string>
+			<string>CE8AA770-FD08-4A91-B13F-8531B5A8A849</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -72,7 +77,7 @@
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
-				<true/>
+				<false/>
 				<key>output</key>
 				<integer>0</integer>
 				<key>removeextension</key>
@@ -80,61 +85,81 @@
 				<key>sticky</key>
 				<false/>
 				<key>text</key>
-				<string>{query}</string>
+				<string>could take a while</string>
 				<key>title</key>
-				<string>Ruby Script</string>
+				<string>Optimizing...</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>42D05639-3F0F-4760-8214-317167E4173D</string>
+			<string>E80424D6-185B-48E5-B238-0FA83AB3DBA8</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
 				<key>escaping</key>
-				<integer>63</integer>
-				<key>keyword</key>
-				<string>test rescue feedback</string>
-				<key>runningsubtext</key>
-				<string>...</string>
+				<integer>4</integer>
 				<key>script</key>
-				<string>/usr/bin/ruby ./main_with_rescue_feedback.rb {query}</string>
-				<key>subtext</key>
-				<string>Ruby Based Workflow Template</string>
-				<key>title</key>
-				<string>Test Alfred Rescue Feedback</string>
+				<string>/usr/bin/ruby main.rb "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
-				<key>withspace</key>
-				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>BA17BE41-176A-4E9A-B958-A3F0BEA36829</string>
+			<string>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>title</key>
+				<string>Optimization complete!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>17C9CDD2-6EE2-457F-AF3F-1E0A5869E53E</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 	</array>
 	<key>readme</key>
 	<string>readme</string>
 	<key>uidata</key>
 	<dict>
-		<key>21557827-8003-42B7-A042-16D4C9278FEC</key>
+		<key>17C9CDD2-6EE2-457F-AF3F-1E0A5869E53E</key>
 		<dict>
 			<key>ypos</key>
-			<real>250.0</real>
+			<real>130</real>
 		</dict>
-		<key>42D05639-3F0F-4760-8214-317167E4173D</key>
+		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
 		<dict>
 			<key>ypos</key>
-			<real>140.0</real>
+			<real>10</real>
 		</dict>
-		<key>BA17BE41-176A-4E9A-B958-A3F0BEA36829</key>
+		<key>E80424D6-185B-48E5-B238-0FA83AB3DBA8</key>
 		<dict>
 			<key>ypos</key>
-			<real>370.0</real>
+			<real>10</real>
+		</dict>
+		<key>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</key>
+		<dict>
+			<key>ypos</key>
+			<real>130</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
