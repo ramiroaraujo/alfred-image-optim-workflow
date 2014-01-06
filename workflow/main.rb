@@ -1,10 +1,19 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
-selection = ARGV[0].gsub "\t", "\n"
+files = ARGV[0].split "\t"
 
-# si no hay jpgs, no poner jpeg-mini
-# ver como fallar si no hay imageOptim o imageAlpha, y mostrar un error visible
-# ver de usar una alternativa a jpeg-mini si no está instalado
+#actions
+jpegmini = false # will use ImageMagick's mogrify at quality 75 if jpegmini is not present
+imagealpha = false
 
-`echo "#{selection}" | bin/imageOptim --jpeg-mini --image-alpha --quit`
+# checks if JPEGs or PNGs are present, and enable jpeg-mini and ImageAlpha accordingly
+files.each do |filepath|
+  ext = File.extname(filepath)
+  jpegmini = true if ext == 'jpg' || ext == 'jpeg'
+  imagealpha = true if ext == 'png'
+end
+
+selection = files.join "\n"
+
+output = `echo "#{selection}" | bin/imageOptim #{'--jpeg-mini' if jpegmini} #{'--image-alpha' if imagealpha} --quit`
