@@ -6,12 +6,12 @@ require 'terminal-notifier'
 
 files = ARGV[0].split "\t"
 
-# check for dependencies, ImageAlpha and ImageOptim
-has_image_alpha = `source bin/imageOptimDependencyCheck && echo $HAS_IMAGE_ALPHA`.chop
-has_image_optim = `source bin/imageOptimDependencyCheck && echo $HAS_IMAGE_OPTIM`.chop
+# basic check for dependencies, ImageAlpha and ImageOptim
+has_image_alpha = File.exists?('/Applications/ImageAlpha.app')
+has_image_optim = File.exists?('/Applications/ImageOptim.app')
 
-if has_image_alpha == 'false' || has_image_optim == 'false'
-  TerminalNotifier.notify('Please install it and re-run the workflow', :title => "Missing #{has_image_alpha == 'false' ? 'ImageAlpha' : 'ImageOptim'}", :group => Process.pid, :sender => 'com.runningwithcrayons.Alfred-2', :sound => 'Basso')
+if !has_image_alpha || !has_image_optim
+  TerminalNotifier.notify('Please install it and re-run the workflow', :title => "Missing #{!has_image_alpha ? 'ImageAlpha' : 'ImageOptim'}", :group => Process.pid, :sender => 'com.runningwithcrayons.Alfred-2', :sound => 'Basso')
   exit
 end
 
