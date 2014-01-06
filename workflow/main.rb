@@ -4,7 +4,7 @@
 require_relative 'bundle/bundler/setup'
 require 'terminal-notifier'
 
-#files = ARGV[0].split "\t"
+files = ARGV[0].split "\t"
 
 # check for dependencies, ImageAlpha and ImageOptim
 has_image_alpha = `source bin/imageOptimDependencyCheck && echo $HAS_IMAGE_ALPHA`.chop
