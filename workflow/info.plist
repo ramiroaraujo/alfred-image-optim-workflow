@@ -155,6 +155,8 @@
 				<false/>
 				<key>sticky</key>
 				<false/>
+				<key>text</key>
+				<string>{query}</string>
 				<key>title</key>
 				<string>Optimization complete!</string>
 			</dict>

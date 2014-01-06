@@ -3,7 +3,7 @@
 
 files = ARGV[0].split "\t"
 
-#actions
+# actions
 jpegmini = false # will use ImageMagick's mogrify at quality 75 if jpegmini is not present
 imagealpha = false
 
@@ -14,6 +14,11 @@ files.each do |filepath|
   imagealpha = true if ext == 'png'
 end
 
+# joins back the files
 selection = files.join "\n"
 
+# runs ImageOptim-CLI
 output = `echo "#{selection}" | bin/imageOptim #{'--jpeg-mini' if jpegmini} #{'--image-alpha' if imagealpha} --quit`
+
+# outputs last line of feedback, which shows savings
+puts output.split("\n")[-1]

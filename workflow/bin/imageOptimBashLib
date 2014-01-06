@@ -510,7 +510,7 @@ function run_mogrify {
             find $TEMP_PATH/jpg -type f -print0 | while IFS= read -r -d $'\0' file; do
                 compression=$($IDENTIFY_BIN -verbose "$file" | /usr/bin/grep "Quality" | /usr/bin/awk '{print $2}')
                 if [[ 75 < $compression ]]; then
-                    $MOGRIFY_BIN 2> /dev/null -quality 1 "$file"
+                    $MOGRIFY_BIN 2> /dev/null -quality 75 "$file"
                 fi
             done
         fi
