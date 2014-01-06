@@ -39,6 +39,12 @@ EXEC_PATH="$PWD"
 # {FilePath} The location of our Applescript library file.
 APPLESCRIPT_BIN="$CLI_PATH/imageOptimAppleScriptLib"
 
+# path to ImageMagick identify binary
+IDENTIFY_BIN="$CLI_PATH/identify"
+
+# path to ImageMagick mogrify binary
+MOGRIFY_BIN="$CLI_PATH/mogrify"
+
 # {FilePath} The location of stat (see issue #59 with stat & homebrew)
 STAT_BIN="/usr/bin/stat"
 
@@ -491,9 +497,24 @@ function run_jpegmini {
         fatal "$message"
       fi
     else
-      fatal "JPEGmini is not installed (https://itunes.apple.com/us/app/jpegmini/id498944723)"
+        info "JPEGmini is not installed, using ImageMagick standard 75 quality compression as fallback"
     fi
   fi
+}
+
+# fallback function if jpeg-mini is not available. Simply compresses JPEGs with a standard quality of 75
+function run_mogrify {
+    if [ "true" == $USE_JPEGMINI ]; then
+        if [ "true" != $HAS_JPEGMINI ] && [ "true" != $HAS_JPEGMINI_RETAIL ] && [ "true" != $HAS_JPEGMINI_LITE ]; then
+            info "Running mogrify..."
+            find $TEMP_PATH/jpg -type f -print0 | while IFS= read -r -d $'\0' file; do
+                compression=$($IDENTIFY_BIN -verbose "$file" | /usr/bin/grep "Quality" | /usr/bin/awk '{print $2}')
+                if [[ 75 < $compression ]]; then
+                    $MOGRIFY_BIN 2> /dev/null -quality 1 "$file"
+                fi
+            done
+        fi
+    fi
 }
 
 # If enabled and installed, run ImageOptim on our temp directory
