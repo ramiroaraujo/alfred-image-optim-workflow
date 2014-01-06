@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
 	<string>com.tumblr.ramiroaraujo.alfred-image-optim</string>
 	<key>connections</key>
 	<dict>
-		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
+		<key>0D6A63CA-3867-4EEB-85F6-8DB5B71497E5</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>E80424D6-185B-48E5-B238-0FA83AB3DBA8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0D6A63CA-3867-4EEB-85F6-8DB5B71497E5</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -50,6 +61,24 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
+				<string># simple count feedback
+/usr/bin/ruby count.rb "{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>0D6A63CA-3867-4EEB-85F6-8DB5B71497E5</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>acceptsmulti</key>
 				<true/>
 				<key>filetypes</key>
@@ -85,9 +114,9 @@
 				<key>sticky</key>
 				<false/>
 				<key>text</key>
-				<string>could take a while</string>
+				<string>could take a while...</string>
 				<key>title</key>
-				<string>Optimizing...</string>
+				<string>{query}</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
@@ -102,7 +131,7 @@
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>script</key>
-				<string>/usr/bin/ruby main.rb &quot;{query}&quot;</string>
+				<string>/usr/bin/ruby main.rb "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -141,25 +170,30 @@
 	<string>readme</string>
 	<key>uidata</key>
 	<dict>
+		<key>0D6A63CA-3867-4EEB-85F6-8DB5B71497E5</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
 		<key>17C9CDD2-6EE2-457F-AF3F-1E0A5869E53E</key>
 		<dict>
 			<key>ypos</key>
-			<real>130.0</real>
+			<real>130</real>
 		</dict>
 		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
 		<dict>
 			<key>ypos</key>
-			<real>10.0</real>
+			<real>10</real>
 		</dict>
 		<key>E80424D6-185B-48E5-B238-0FA83AB3DBA8</key>
 		<dict>
 			<key>ypos</key>
-			<real>10.0</real>
+			<real>10</real>
 		</dict>
 		<key>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</key>
 		<dict>
 			<key>ypos</key>
-			<real>130.0</real>
+			<real>130</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
