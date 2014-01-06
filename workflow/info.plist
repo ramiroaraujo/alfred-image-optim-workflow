@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
@@ -44,7 +44,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Image Optimization</string>
+	<string>Optimize Images</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -102,7 +102,7 @@
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>script</key>
-				<string>/usr/bin/ruby main.rb "{query}"</string>
+				<string>/usr/bin/ruby main.rb &quot;{query}&quot;</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -144,22 +144,22 @@
 		<key>17C9CDD2-6EE2-457F-AF3F-1E0A5869E53E</key>
 		<dict>
 			<key>ypos</key>
-			<real>130</real>
+			<real>130.0</real>
 		</dict>
 		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
 		<dict>
 			<key>ypos</key>
-			<real>10</real>
+			<real>10.0</real>
 		</dict>
 		<key>E80424D6-185B-48E5-B238-0FA83AB3DBA8</key>
 		<dict>
 			<key>ypos</key>
-			<real>10</real>
+			<real>10.0</real>
 		</dict>
 		<key>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</key>
 		<dict>
 			<key>ypos</key>
-			<real>130</real>
+			<real>130.0</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
