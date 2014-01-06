@@ -1,8 +1,10 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    terminal-notifier (1.5.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  terminal-notifier

@@ -1,7 +1,19 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
-files = ARGV[0].split "\t"
+require_relative 'bundle/bundler/setup'
+require 'terminal-notifier'
+
+#files = ARGV[0].split "\t"
+
+# check for dependencies, ImageAlpha and ImageOptim
+has_image_alpha = `source bin/imageOptimDependencyCheck && echo $HAS_IMAGE_ALPHA`.chop
+has_image_optim = `source bin/imageOptimDependencyCheck && echo $HAS_IMAGE_OPTIM`.chop
+
+if has_image_alpha == 'false' || has_image_optim == 'false'
+  TerminalNotifier.notify('Please install it and re-run the workflow', :title => "Missing #{has_image_alpha == 'false' ? 'ImageAlpha' : 'ImageOptim'}", :group => Process.pid, :sender => 'com.runningwithcrayons.Alfred-2', :sound => 'Basso')
+  exit
+end
 
 # actions
 jpegmini = false # will use ImageMagick's mogrify at quality 75 if jpegmini is not present
