@@ -8,7 +8,6 @@
         <file url="file://$MODULE_DIR$/workflow/bin/imageOptim" mode="accept" />
         <file url="file://$MODULE_DIR$/workflow/bin/imageOptimAppleScriptLib" mode="accept" />
         <file url="file://$MODULE_DIR$/workflow/bin/imageOptimBashLib" mode="accept" />
-        <file url="file://$MODULE_DIR$/workflow/bin/imageOptimDependencyCheck" mode="accept" />
       </configuration>
     </facet>
   </component>
