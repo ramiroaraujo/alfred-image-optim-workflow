@@ -13,9 +13,9 @@ My own addition to this image processing is that if JPEGmini is unavailable, it 
 
 ## Usage
 
-1. find or select one or more images, show the file actions in Alfred, and select "Optimize Images".
+1. find or select one or more images or folders, show the file actions in Alfred, and select "Optimize Images".
   Note that any Alfred's way of selecting files work, such us:
-  * select one or multiple files in finder and press ```⌘ alt \```
+  * select one or multiple files/folders in finder and press ```⌘ alt \```
   * browsing or finding files in Alfred, and triggering actions for the file
   * saving files in Alfred's file buffer, and then ```alt →``` to action buffered files.
 
@@ -41,3 +41,4 @@ For Previous OS X Versions, Download the [alfred-image-optim-workflow.alfredwork
 
 ## Changelog
 * _2014-01-06_ - Released
+* _2014-01-23_ - Added folder support, and correctly counting number of files inside folders

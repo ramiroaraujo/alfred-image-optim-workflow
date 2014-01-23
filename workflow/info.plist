@@ -86,6 +86,7 @@
 					<string>com.compuserve.gif</string>
 					<string>com.microsoft.bmp</string>
 					<string>com.truevision.tga-image</string>
+					<string>public.folder</string>
 					<string>public.jpeg</string>
 					<string>public.png</string>
 					<string>public.tiff</string>

@@ -21,9 +21,14 @@ imagealpha = false
 
 # checks if JPEGs or PNGs are present, and enable jpeg-mini and ImageAlpha accordingly
 files.each do |filepath|
-  ext = File.extname(filepath)
-  jpegmini = true if ext == '.jpg' || ext == '.jpeg'
-  imagealpha = true if ext == '.png'
+  if File.directory? filepath
+    jpegmini = true if Dir.glob("#{filepath}/**/*.jp{eg,g}").length > 0
+    imagealpha = true if Dir.glob("#{filepath}/**/*.png").length > 0
+  elsif
+    ext = File.extname(filepath)
+    jpegmini = true if ext == '.jpg' || ext == '.jpeg'
+    imagealpha = true if ext == '.png'
+  end
 end
 
 # joins back the files
