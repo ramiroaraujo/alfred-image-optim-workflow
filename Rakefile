@@ -109,7 +109,7 @@ desc "Create packed Workflow"
 task :export => [:config] do
   ruby_version = RbConfig::CONFIG["ruby_version"]
 
-  filename = "#{$config['id']}.alfredworkflow"
+  filename = "#{$config['id'].chomp '-workflow'}.alfredworkflow"
   output = 'output'
 
   FileUtils.rm filename if File.exists? filename
@@ -137,7 +137,7 @@ task :export => [:config] do
         next if dir == '.' || dir == '..'
         Dir.chdir(dir) do
           Dir.foreach('.') do |subdir|
-            next if dir == '.' || dir == '..'
+            next if subdir == '.' || subdir == '..'
             FileUtils.rmtree subdir if !(%w(. .. lib).include? subdir)
           end
         end

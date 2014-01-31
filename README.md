@@ -35,9 +35,9 @@ You shouldn't run optimizations in parallel. Tecnically you could if the batch a
 
 
 ## Installation
-For OS X 10.9 Mavericks, Download the [alfred-image-optim-workflow.alfredworkflow](https://github.com/ramiroaraujo/alfred-image-optim-workflow/raw/master/alfred-image-optim.alfredworkflow) and import to Alfred 2.
+For OS X 10.9 Mavericks, Download the [alfred-image-optim.alfredworkflow](https://github.com/ramiroaraujo/alfred-image-optim-workflow/raw/master/alfred-image-optim.alfredworkflow) and import to Alfred 2.
 
-For Previous OS X Versions, Download the [alfred-image-optim-workflow.alfredworkflow](https://github.com/ramiroaraujo/alfred-image-optim-workflow/raw/pre-mavericks/alfred-image-optim.alfredworkflow) and import to Alfred 2.
+For Previous OS X Versions, Download the [alfred-image-optim.alfredworkflow](https://github.com/ramiroaraujo/alfred-image-optim-workflow/raw/pre-mavericks/alfred-image-optim.alfredworkflow) and import to Alfred 2.
 
 ## Changelog
 * _2014-01-06_ - Released
