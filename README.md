@@ -29,6 +29,8 @@ My own addition to this image processing is that if JPEGmini is unavailable, it 
 
   ![Process finished](https://raw.github.com/ramiroaraujo/alfred-image-optim-workflow/master/screenshots/notification-feedback.png)
 
+**The proccess _replaces_ the images with the optimized versions. Remember to save a copy or work with versioned files.**
+
 ## Caveats
 
 You shouldn't run optimizations in parallel. Tecnically you could if the batch already jumped to the next app (from JPEGmini to ImageOptim for example), but it's looking for trouble. I'll consider adding a check in the future to prevent parallel process from happening, but I'm affraid this could add other complications, as in how to clear the _processing_ flag if optimization process is interrumpted earlier.
