@@ -1,0 +1,22 @@
+{
+  "name": "ramiroaraujo/alfred-workflow-builder",
+  "description": "A basic PHP workflow builder as a composer project",
+  "license": "MIT",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Ramiro Araujo",
+      "email": "rama.araujo@gmail.com"
+    }
+  ],
+  "require": {
+    "skyzyx/alfred-workflow-builder": "dev-master"
+  },
+  "require-dev": {
+    "rodneyrehm/plist": "^2.0"
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "scripts": {
+  }
+}

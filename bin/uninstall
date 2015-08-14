@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+if [ ! -f info.plist ]; then
+    echo "No info.plist found. Please run bin/initialize first"
+    exit 1;
+fi
+
+# get install folder from params or use default
+case $1 in
+""      ) folder="$HOME/Library/Application Support/Alfred 2/Workflow Data";;
+dropbox ) folder="$HOME/Dropbox/Alfred.alfredpreferences/workflows" ;;
+*       ) folder=$1
+esac
+
+# check folder exists
+if [ ! -d "${folder}" ]; then
+    echo "folder ${folder} does not exist"
+    exit 1
+fi
+
+# get bundle id
+bundle_id=`perl -0ne 'print $1 if /<key>bundleid<\/key>\s*<string>(.+?)<\/string>/ms' info.plist`
+
+rm "${folder}/${bundle_id}"
+
+echo "workflow uninstalled"

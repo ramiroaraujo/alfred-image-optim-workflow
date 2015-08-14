@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -o braceexpand
+
+if [ ! -f info.plist ]; then
+    echo "No info.plist found. Please run bin/initialize first"
+    exit 1;
+fi
+
+# get bundle id
+bundle_id=`perl -0ne 'print $1 if /<key>bundleid<\/key>\s*<string>(.+?)<\/string>/ms' info.plist`
+
+composer install --no-dev --prefer-dist --optimize-autoloader
+
+tmp_dir="/tmp/${bundle_id}"
+
+rm -rf "${tmp_dir}" > /dev/null 2>&1
+
+mkdir "${tmp_dir}"
+cp -r . "${tmp_dir}/"
+rm -rf "${tmp_dir}"/.{gitignore,git,idea}
+rm "${tmp_dir}"/composer*
+rm -r "${tmp_dir}/assets"
+rm -r "${tmp_dir}"/*.alfredworkflow > /dev/null 2>&1
+rm "${tmp_dir}"/bin/{initialize,install,uninstall,package}
+rmdir "${tmp_dir}/bin" > /dev/null 2>&1
+
+workflow_dir=`pwd`
+rm ${bundle_id}.alfredworkflow > /dev/null 2>&1
+
+cd "$tmp_dir" && zip -r -q "${workflow_dir}"/${bundle_id}.alfredworkflow . && cd -
+
+composer install --prefer-dist
+
+echo "Workflow file created: ${bundle_id}.alfredworkflow"

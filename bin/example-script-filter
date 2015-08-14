@@ -1,0 +1,25 @@
+#!/usr/bin/env php
+<?php
+
+use CFPropertyList\CFPropertyList;
+use CFPropertyList\CFTypeDetector;
+
+require_once __DIR__ . "/../vendor/autoload.php";
+
+$example = new CFPropertyList(__DIR__ . '/../assets/example-script-filter/info.plist', CFPropertyList::FORMAT_XML);
+$info = new CFPropertyList(__DIR__ . '/../info.plist', CFPropertyList::FORMAT_XML);
+
+$data = $example->toArray();
+$plist = $info->toArray();
+
+$plist['connections'] = $data['connections'];
+$plist['objects'] = $data['objects'];
+$plist['uidata'] = $data['uidata'];
+
+$merged = (new CFTypeDetector())->toCFType($plist);
+$info->purge();
+$info->add($merged);
+$info->saveXML(__DIR__ . '/../info.plist');
+
+// copy script filter
+copy(__DIR__ . '/../assets/example-script-filter/script-filter.php', __DIR__ . '/../script-filter.php');

@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# check for plist template
+if [ -f info.plist ]; then
+    echo "info.plist file already exists, please delete it to to initialize"
+    exit 1;
+fi
+
+echo ""
+echo "** Please provide some basic data for workflow creation **"
+echo ""
+
+# ask bundle id
+read -p "Bundle ID (com.example.you-workflow): " bundle_id
+if [ -z ${bundle_id} ]; then echo "no bundle id provided"; exit 1; fi
+
+# ask workflow name
+read -p "Workflow Name: " name
+if [ -z "${name}" ]; then echo "no workflow name provided"; exit 1; fi
+
+# ask user name, default to git user name
+git_user=`git config --global user.name`
+read -p "Your name [$git_user]: " user_name
+if [ -z "${user_name}" ]; then user_name=${git_user}; fi
+if [ -z "${user_name}" ]; then echo "no user name provided"; exit 1; fi
+
+echo ""
+echo "** Create base workflow with the following data? **"
+echo "Bundle id: $bundle_id"
+echo "Name: $name"
+echo "Created by: $user_name"
+
+read -r -p "Are you sure? [y/N] " response
+if [[ ! ${response} =~ ^([yY][eE][sS]|[yY])$ ]]; then
+    exit 0
+fi
+
+# write final info.plist
+data=`cat assets/info.plist | sed -e "s/{{BUNDLE_ID}}/$bundle_id/; s/{{NAME}}/$name/; s/{{CREATED_BY}}/$user_name/;" > ./info.plist`
+
+echo "info.plist generated. Please run \`bin/install\` or \`bin/install\` dropbox to install"
