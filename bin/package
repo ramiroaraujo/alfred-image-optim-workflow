@@ -8,7 +8,7 @@ if [ ! -f info.plist ]; then
 fi
 
 # get bundle id
-bundle_id=`perl -0ne 'print $1 if /<key>bundleid<\/key>\s*<string>(.+?)<\/string>/ms' info.plist`
+bundle_id=`perl -0ne 'print $1 if /<key>bundleid<\/key>\s*<string>(.+?)<\/string>/ms' info.plist |  awk -F '.' '{print $NF}'`
 
 composer install --no-dev --prefer-dist --optimize-autoloader
 
