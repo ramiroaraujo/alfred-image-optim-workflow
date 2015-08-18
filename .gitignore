@@ -1,3 +1,6 @@
 worflow
 .idea
 .bundle
+bin/exifr
+bin/image_optim
+
