@@ -6,22 +6,11 @@
 	<string>com.tumblr.ramiroaraujo.alfred-image-optim-workflow</string>
 	<key>connections</key>
 	<dict>
-		<key>0D6A63CA-3867-4EEB-85F6-8DB5B71497E5</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>E80424D6-185B-48E5-B238-0FA83AB3DBA8</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
 		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>0D6A63CA-3867-4EEB-85F6-8DB5B71497E5</string>
+				<string>E80424D6-185B-48E5-B238-0FA83AB3DBA8</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -61,51 +50,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>could take a while...</string>
-				<key>title</key>
-				<string>Images to process: {query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>E80424D6-185B-48E5-B238-0FA83AB3DBA8</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>4</integer>
-				<key>script</key>
-				<string># simple count feedback
-echo "{query}" | tr '\t' '\n' | wc -l | bc</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>0D6A63CA-3867-4EEB-85F6-8DB5B71497E5</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>acceptsmulti</key>
 				<true/>
 				<key>filetypes</key>
@@ -134,6 +78,31 @@ echo "{query}" | tr '\t' '\n' | wc -l | bc</string>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>could take a while...</string>
+				<key>title</key>
+				<string>Optimizing Images</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>E80424D6-185B-48E5-B238-0FA83AB3DBA8</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
 				<true/>
 				<key>output</key>
 				<integer>0</integer>
@@ -141,6 +110,8 @@ echo "{query}" | tr '\t' '\n' | wc -l | bc</string>
 				<false/>
 				<key>sticky</key>
 				<false/>
+				<key>text</key>
+				<string>{query}</string>
 				<key>title</key>
 				<string>Optimization complete!</string>
 			</dict>
@@ -159,7 +130,7 @@ echo "{query}" | tr '\t' '\n' | wc -l | bc</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>echo "{query}" | tr '\t' '\n' | xargs -L 1 -I{} bin/image_optim --allow-lossy --no-pngout --no-svgo --recursive "{}"</string>
+				<string>echo "{query}" | tr '\t' '\n' | xargs -L 1 -I{} bin/image_optim --allow-lossy --no-pngout --no-svgo --recursive --no-progress "{}" | tail -n 1 | awk '{perc=$2+0; end=$3+0; start=end/(perc/100)} END {printf("%s", "reduced " perc "% from "); printf("%.1f", start); print "K to " end "K"}'</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -175,11 +146,6 @@ echo "{query}" | tr '\t' '\n' | wc -l | bc</string>
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>0D6A63CA-3867-4EEB-85F6-8DB5B71497E5</key>
-		<dict>
-			<key>ypos</key>
-			<real>10</real>
-		</dict>
 		<key>17C9CDD2-6EE2-457F-AF3F-1E0A5869E53E</key>
 		<dict>
 			<key>ypos</key>
