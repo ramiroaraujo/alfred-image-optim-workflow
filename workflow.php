@@ -31,7 +31,7 @@ $feedback->result([
 $feedback->result([
     'uid' => uniqid(),
     'title' => 'Cancel Optimization',
-    'subtitle' => "already optimized images (currently {$current->done} will remain optimized)",
+    'subtitle' => "already optimized images (currently {$current->done}) will remain optimized",
     'arg' => 'cancel'
 ]);
 echo $feedback->toXML();
