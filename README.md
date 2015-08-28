@@ -40,6 +40,8 @@ The original project is in the ```old-ruby-version``` branch.
 
 When the optimization process is running you can use the ```optimize progress``` keyword to see the progress, ```mute``` the process (avoid progress notifications) and ```cancel``` de process (stops process, leaves already optimized images as is).
 
+  ![Options](screenshots/progress.png)
+
 You cannot run this workflow if a previous process is still running. If you try to run it again, the ```optimize progress``` keyword is immediately fired to check on the current process instead.
 
 ## Installation
