@@ -31,7 +31,7 @@ class ImageOptimWorkflow
     {
         if ($this->checkCurrentPidRunning()) {
             $this->notify('Notice!', 'There\'s a previous optimization process running', 'imageoptim', self::SOUND_NOTICE);
-            shell_exec('osascript -e \'tell application "Alfred 2" to search "optimizeimages"\'');
+            shell_exec('osascript -e \'tell application "Alfred 2" to search "optimize progress"\'');
             return false;
         }
 

@@ -190,7 +190,7 @@
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>keyword</key>
-				<string>optimizeimages</string>
+				<string>optimize progress</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -204,7 +204,7 @@
 				<key>script</key>
 				<string>XDEBUG_CONFIG="idekey=vagrant" /usr/local/bin/php workflow.php</string>
 				<key>title</key>
-				<string>Optimize Images</string>
+				<string>Current optimization progress</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
