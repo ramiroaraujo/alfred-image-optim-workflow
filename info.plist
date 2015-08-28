@@ -6,11 +6,33 @@
 	<string>com.tumblr.ramiroaraujo.alfred-image-optim-workflow</string>
 	<key>connections</key>
 	<dict>
-		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
+		<key>217F0DEC-1289-4505-B526-8D9FF3BA1445</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B6040B00-F38F-462A-B4B0-A043D9CC0030</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>228EBDAB-BE63-49E1-82F3-1185851C62C0</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>E80424D6-185B-48E5-B238-0FA83AB3DBA8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>228EBDAB-BE63-49E1-82F3-1185851C62C0</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -50,6 +72,50 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<true/>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
+				<string>XDEBUG_CONFIG="idekey=vagrant" /usr/local/bin/php count-files.php "{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>228EBDAB-BE63-49E1-82F3-1185851C62C0</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>could take a while...</string>
+				<key>title</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>E80424D6-185B-48E5-B238-0FA83AB3DBA8</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>acceptsmulti</key>
 				<true/>
 				<key>filetypes</key>
@@ -69,31 +135,6 @@
 			<string>alfred.workflow.trigger.action</string>
 			<key>uid</key>
 			<string>CE8AA770-FD08-4A91-B13F-8531B5A8A849</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>could take a while...</string>
-				<key>title</key>
-				<string>Optimizing Images</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>E80424D6-185B-48E5-B238-0FA83AB3DBA8</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -126,11 +167,11 @@
 			<key>config</key>
 			<dict>
 				<key>concurrently</key>
-				<false/>
+				<true/>
 				<key>escaping</key>
-				<integer>102</integer>
+				<integer>4</integer>
 				<key>script</key>
-				<string>echo "{query}" | tr '\t' '\n' | xargs -L 1 -I{} bin/image_optim --allow-lossy --no-pngout --no-svgo --recursive --no-progress "{}" | tail -n 1 | awk '{perc=$2+0; end=$3+0; start=end/(perc/100)} END {printf("%s", "reduced " perc "% from "); printf("%.1f", start); print "K to " end "K"}'</string>
+				<string>XDEBUG_CONFIG="idekey=vagrant" /usr/local/bin/php optimize.php "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -138,6 +179,60 @@
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>keyword</key>
+				<string>optimizeimages</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>checking...</string>
+				<key>script</key>
+				<string>XDEBUG_CONFIG="idekey=vagrant" /usr/local/bin/php workflow.php</string>
+				<key>title</key>
+				<string>Optimize Images</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>217F0DEC-1289-4505-B526-8D9FF3BA1445</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<true/>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
+				<string>XDEBUG_CONFIG="idekey=vagrant" /usr/local/bin/php workflow_processes.php "{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>B6040B00-F38F-462A-B4B0-A043D9CC0030</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -150,6 +245,21 @@
 		<dict>
 			<key>ypos</key>
 			<real>130</real>
+		</dict>
+		<key>217F0DEC-1289-4505-B526-8D9FF3BA1445</key>
+		<dict>
+			<key>ypos</key>
+			<real>250</real>
+		</dict>
+		<key>228EBDAB-BE63-49E1-82F3-1185851C62C0</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>B6040B00-F38F-462A-B4B0-A043D9CC0030</key>
+		<dict>
+			<key>ypos</key>
+			<real>250</real>
 		</dict>
 		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
 		<dict>
