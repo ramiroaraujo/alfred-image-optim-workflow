@@ -45,7 +45,7 @@ When the optimization process is running you can use the ```optimize progress```
 You cannot run this workflow if a previous process is still running. If you try to run it again, the ```optimize progress``` keyword is immediately fired to check on the current process instead.
 
 ## Installation
-Download the [alfred-image-optim-workflow.alfredworkflow](alfred-image-optim-workflow.alfredworkflow) and import to Alfred 2.
+Download the [alfred-image-optim-workflow.alfredworkflow](alfred-image-optim-workflow.alfredworkflow?raw=true) and import to Alfred 2.
 
 ## Changelog
 * _2014-01-06_ - Released
