@@ -18,12 +18,15 @@ rm -rf "${tmp_dir}" > /dev/null 2>&1
 
 mkdir "${tmp_dir}"
 cp -r . "${tmp_dir}/"
-rm -rf "${tmp_dir}"/.{gitignore,git,idea}
+rm -rf "${tmp_dir}"/.{gitignore,git,idea,bundle}
 rm "${tmp_dir}"/composer*
-rm -r "${tmp_dir}/assets"
+rm "${tmp_dir}"/Gemfile*
+rm "${tmp_dir}"/README.md
+rm -r "${tmp_dir}/screenshots"
 rm -r "${tmp_dir}"/*.alfredworkflow > /dev/null 2>&1
 rm "${tmp_dir}"/bin/{initialize,install,uninstall,package}
 rmdir "${tmp_dir}/bin" > /dev/null 2>&1
+
 
 workflow_dir=`pwd`
 rm ${bundle_id}.alfredworkflow > /dev/null 2>&1
