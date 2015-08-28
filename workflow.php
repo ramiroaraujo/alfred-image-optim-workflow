@@ -14,7 +14,7 @@ if (!$current) {
     exit();
 }
 
-$count_images = sprintf("Optimizing " . ngettext("%d Image", "%d Images", $current->total), $current->total);
+$count_images = "Optimizing {$current->total} " . ($current->total < 2 ? 'Image' : 'Images');
 $eta = $current->done == 0 ? 'unknown' : round(($current->total - $current->done) * (($current->time - $current->start) / $current->done));
 $feedback->result([
     'uid' => uniqid(),

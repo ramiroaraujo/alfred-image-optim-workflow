@@ -103,7 +103,7 @@ class ImageOptimWorkflow
         }
 
         $count = count($files);
-        return sprintf("Optimizing " . ngettext("%d Image", "%d Images", $count), $count);
+        return "Optimizing {$count} " . ($count < 2 ? 'Image' : 'Images');
     }
 
     /**
