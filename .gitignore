@@ -1,6 +1,4 @@
-worflow
 .idea
-.bundle
-bin/exifr
-bin/image_optim
-
+workflow/.bundle
+workflow/bin/exifr
+workflow/bin/image_optim

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # check for plist template
-if [ -f info.plist ]; then
+if [ -f workflow/info.plist ]; then
     echo "info.plist file already exists, please delete it to to initialize"
     exit 1;
 fi
@@ -36,6 +36,6 @@ if [[ ! ${response} =~ ^([yY][eE][sS]|[yY])$ ]]; then
 fi
 
 # write final info.plist
-data=`cat assets/info.plist | sed -e "s/{{BUNDLE_ID}}/$bundle_id/; s/{{NAME}}/$name/; s/{{CREATED_BY}}/$user_name/;" > ./info.plist`
+data=`cat assets/info.plist | sed -e "s/{{BUNDLE_ID}}/$bundle_id/; s/{{NAME}}/$name/; s/{{CREATED_BY}}/$user_name/;" > ./workflow/info.plist`
 
 echo "info.plist generated. Please run \`bin/install\` or \`bin/install\` dropbox to install"

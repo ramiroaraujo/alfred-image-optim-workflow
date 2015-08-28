@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ ! -f info.plist ]; then
+if [ ! -f workflow/info.plist ]; then
     echo "No info.plist found. Please run bin/initialize first"
     exit 1;
 fi
@@ -19,7 +19,7 @@ if [ ! -d "${folder}" ]; then
 fi
 
 # get bundle id
-bundle_id=`perl -0ne 'print $1 if /<key>bundleid<\/key>\s*<string>(.+?)<\/string>/ms' info.plist`
+bundle_id=`perl -0ne 'print $1 if /<key>bundleid<\/key>\s*<string>(.+?)<\/string>/ms' workflow/info.plist`
 
 rm "${folder}/${bundle_id}"
 

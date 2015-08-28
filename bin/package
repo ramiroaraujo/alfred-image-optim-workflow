@@ -2,10 +2,12 @@
 
 set -o braceexpand
 
-if [ ! -f info.plist ]; then
+if [ ! -f workflow/info.plist ]; then
     echo "No info.plist found. Please run bin/initialize first"
     exit 1;
 fi
+
+cd workflow
 
 # get bundle id
 bundle_id=`perl -0ne 'print $1 if /<key>bundleid<\/key>\s*<string>(.+?)<\/string>/ms' info.plist |  awk -F '.' '{print $NF}'`
@@ -18,23 +20,21 @@ rm -rf "${tmp_dir}" > /dev/null 2>&1
 
 mkdir "${tmp_dir}"
 cp -r . "${tmp_dir}/"
-rm -rf "${tmp_dir}"/.{gitignore,git,idea,bundle}
+rm -rf "${tmp_dir}"/.{gitignore,bundle}
 rm "${tmp_dir}"/composer*
 rm "${tmp_dir}"/Gemfile*
-rm "${tmp_dir}"/README.md
-rm -r "${tmp_dir}/screenshots"
-rm -r "${tmp_dir}"/*.alfredworkflow > /dev/null 2>&1
-rm "${tmp_dir}"/bin/{initialize,install,uninstall,package}
-rmdir "${tmp_dir}/bin" > /dev/null 2>&1
 
 # replace xdebug php calls with regular OSX php
 perl -pi -e 's#XDEBUG.+?/usr/local/bin/php#/usr/bin/php#' "${tmp_dir}/info.plist"
 
+cd ..
 
 workflow_dir=`pwd`
 rm ${bundle_id}.alfredworkflow > /dev/null 2>&1
 
 cd "$tmp_dir" && zip -r -q "${workflow_dir}"/${bundle_id}.alfredworkflow . && cd -
+
+cd workflow
 
 composer install --prefer-dist
 
