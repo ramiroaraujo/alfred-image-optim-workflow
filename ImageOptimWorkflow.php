@@ -60,7 +60,7 @@ class ImageOptimWorkflow
             $current->time = time();
             $current->done = $index + 1;
             $this->updateProcessFile($current);
-            if (time() - $previous_notification > self::NOTIFICATION_TIME) {
+            if (time() - $previous_notification > self::NOTIFICATION_TIME && $index < (count($files) - 1)) {
                 if (!$current->mute) {
                     $previous_notification = time();
                     $this->notify('Optimizing images...', sprintf('%d out of %d done', $index + 1, count($files)), 'imageoptim');
