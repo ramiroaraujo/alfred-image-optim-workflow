@@ -21,7 +21,7 @@ class ImageOptimWorkflow
     /**
      *
      */
-    const NOTIFICATION_TIME = 10;
+    const NOTIFICATION_TIME = 30;
 
     /**
      * @param $paths
