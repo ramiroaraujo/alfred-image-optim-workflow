@@ -169,7 +169,7 @@ class ImageOptimWorkflow
         $process = $this->readProcessFile();
 
         //check if the process is still running
-        if (shell_exec("ps -A | grep '^{$process->pid}' | wc -l") == 0) {
+        if (shell_exec("ps -A | perl -ne 'print if /^\\s*{$process->pid}/' | wc -l") == 0) {
             $this->deleteCurrentProcessFile();
             return false;
         }
