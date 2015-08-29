@@ -20,9 +20,11 @@ rm -rf "${tmp_dir}" > /dev/null 2>&1
 
 mkdir "${tmp_dir}"
 cp -r . "${tmp_dir}/"
-rm -rf "${tmp_dir}"/.{gitignore,bundle}
+rm -r "${tmp_dir}"/.{gitignore,bundle}
 rm "${tmp_dir}"/composer*
 rm "${tmp_dir}"/Gemfile*
+rm -rf "${tmp_dir}"/bundle/ruby/2.0.0/cache
+rm -rf "${tmp_dir}"/bundle/ruby/2.0.0/gems/image_optim_pack*/vendor/{linux,darwin/i386}
 
 # replace xdebug php calls with regular OSX php
 perl -pi -e 's#XDEBUG.+?/usr/local/bin/php#/usr/bin/php#' "${tmp_dir}/info.plist"
