@@ -46,9 +46,14 @@ class ImageOptimWorkflow
         $old_sizes = 0;
         $new_sizes = 0;
         $scale = 'Kb';
+        $numFiles = count($files);
 
         //persist current PID
-        $this->createProcessFile(count($files));
+        $this->createProcessFile($numFiles);
+
+        //show initial notification
+        $title = "Optimizing {$numFiles} " . ($numFiles < 2 ? 'Image' : 'Images');
+        $this->notify($title, 'could take a while...', 'imageoptim', false);
 
         //optimize each file, recording filesize before and after optim
         foreach ($files as $index => $file) {
@@ -60,10 +65,10 @@ class ImageOptimWorkflow
             $current->time = time();
             $current->done = $index + 1;
             $this->updateProcessFile($current);
-            if (time() - $previous_notification > self::NOTIFICATION_TIME && $index < (count($files) - 1)) {
+            if (time() - $previous_notification > self::NOTIFICATION_TIME && $index < ($numFiles - 1)) {
                 if (!$current->mute) {
                     $previous_notification = time();
-                    $this->notify('Optimizing images...', sprintf('%d out of %d done', $index + 1, count($files)), 'imageoptim');
+                    $this->notify('Optimizing images...', sprintf('%d out of %d done', $index + 1, $numFiles), 'imageoptim');
                 }
             }
         }
@@ -83,27 +88,9 @@ class ImageOptimWorkflow
         }
         $percent = ($old_sizes - $new_sizes) / $old_sizes * 100;
 
-        //return report
-        return sprintf("Total was: %.2f%s now %.2f%s saving: %.2f%s (%.1f%%)", $old_sizes, $scale, $new_sizes, $scale, $old_sizes - $new_sizes, $scale, $percent);
-    }
-
-    /**
-     * @param $paths
-     * @return string
-     */
-    public function countFiles($paths)
-    {
-        if ($this->checkCurrentPidRunning()) {
-            return false;
-        }
-
-        $files = $this->getAllImageFiles(explode("\t", $paths));
-        if (empty($files)) {
-            return false;
-        }
-
-        $count = count($files);
-        return "Optimizing {$count} " . ($count < 2 ? 'Image' : 'Images');
+        //show final report notification
+        $message = sprintf("Total was: %.2f%s now %.2f%s saving: %.2f%s (%.1f%%)", $old_sizes, $scale, $new_sizes, $scale, $old_sizes - $new_sizes, $scale, $percent);
+        $this->notify('Optimization Complete', $message, 'imageoptim', self::SOUND_SUCCESS);
     }
 
     /**

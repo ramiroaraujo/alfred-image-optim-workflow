@@ -17,27 +17,8 @@
 				<string></string>
 			</dict>
 		</array>
-		<key>228EBDAB-BE63-49E1-82F3-1185851C62C0</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>E80424D6-185B-48E5-B238-0FA83AB3DBA8</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
 		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
 		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>228EBDAB-BE63-49E1-82F3-1185851C62C0</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
 			<dict>
 				<key>destinationuid</key>
 				<string>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</string>
@@ -48,16 +29,7 @@
 			</dict>
 		</array>
 		<key>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>17C9CDD2-6EE2-457F-AF3F-1E0A5869E53E</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
+		<array/>
 	</dict>
 	<key>createdby</key>
 	<string>Ramiro Araujo</string>
@@ -77,39 +49,14 @@
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>script</key>
-				<string>XDEBUG_CONFIG="idekey=vagrant" /usr/local/bin/php count-files.php "{query}"</string>
+				<string>XDEBUG_CONFIG="idekey=vagrant" /usr/local/bin/php optimize.php "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>228EBDAB-BE63-49E1-82F3-1185851C62C0</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>could take a while...</string>
-				<key>title</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>E80424D6-185B-48E5-B238-0FA83AB3DBA8</string>
+			<string>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -132,50 +79,6 @@
 			<string>alfred.workflow.trigger.action</string>
 			<key>uid</key>
 			<string>CE8AA770-FD08-4A91-B13F-8531B5A8A849</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Optimization complete!</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>17C9CDD2-6EE2-457F-AF3F-1E0A5869E53E</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<true/>
-				<key>escaping</key>
-				<integer>4</integer>
-				<key>script</key>
-				<string>XDEBUG_CONFIG="idekey=vagrant" /usr/local/bin/php optimize.php "{query}"</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -238,32 +141,17 @@
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>17C9CDD2-6EE2-457F-AF3F-1E0A5869E53E</key>
+		<key>217F0DEC-1289-4505-B526-8D9FF3BA1445</key>
 		<dict>
 			<key>ypos</key>
 			<real>130</real>
 		</dict>
-		<key>217F0DEC-1289-4505-B526-8D9FF3BA1445</key>
-		<dict>
-			<key>ypos</key>
-			<real>250</real>
-		</dict>
-		<key>228EBDAB-BE63-49E1-82F3-1185851C62C0</key>
-		<dict>
-			<key>ypos</key>
-			<real>10</real>
-		</dict>
 		<key>B6040B00-F38F-462A-B4B0-A043D9CC0030</key>
 		<dict>
 			<key>ypos</key>
-			<real>250</real>
+			<real>130</real>
 		</dict>
 		<key>CE8AA770-FD08-4A91-B13F-8531B5A8A849</key>
-		<dict>
-			<key>ypos</key>
-			<real>10</real>
-		</dict>
-		<key>E80424D6-185B-48E5-B238-0FA83AB3DBA8</key>
 		<dict>
 			<key>ypos</key>
 			<real>10</real>
@@ -271,7 +159,7 @@
 		<key>EF0F2B6E-A672-4EBD-AEFC-78E0EBEC0131</key>
 		<dict>
 			<key>ypos</key>
-			<real>130</real>
+			<real>10</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
