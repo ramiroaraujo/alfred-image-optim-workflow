@@ -9,6 +9,9 @@
       "email": "rama.araujo@gmail.com"
     }
   ],
+  "config": {
+    "vendor-dir": "workflow/vendor"
+  },
   "require": {
     "skyzyx/alfred-workflow-builder": "dev-master",
     "webmozart/glob": "^3.1"
@@ -18,6 +21,11 @@
   },
   "minimum-stability": "stable",
   "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "Workflow\\": "workflow"
+    }
+  },
   "scripts": {
   }
 }

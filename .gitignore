@@ -1,4 +1,4 @@
 .idea
-workflow/.bundle
+.bundle
 workflow/bin/exifr
 workflow/bin/image_optim
