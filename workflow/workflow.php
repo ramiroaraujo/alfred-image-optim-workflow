@@ -1,8 +1,12 @@
 <?php
-require_once "ImageOptimWorkflow.php";
+require_once __DIR__ . "/vendor/autoload.php";
+
+use Alfred\Workflow;
+use Workflow\ImageOptimWorkflow;
+
 
 $workflow = new ImageOptimWorkflow();
-$feedback = new \Alfred\Workflow();
+$feedback = new Workflow();
 
 $current = $workflow->getCurrentProcess();
 if (!$current) {

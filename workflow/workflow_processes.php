@@ -1,12 +1,14 @@
 <?php
-require_once "ImageOptimWorkflow.php";
+require_once __DIR__ . "/vendor/autoload.php";
+
+use Workflow\ImageOptimWorkflow;
 
 $workflow = new ImageOptimWorkflow();
 
 $process = $argv[1];
 
 if ($process == 'mute') {
-    $current = $workflow->muteCurrent();
+    $workflow->muteCurrent();
 } else if ($process == 'cancel') {
-    $current = $workflow->cancelCurrent();
+    $workflow->cancelCurrent();
 }
