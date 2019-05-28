@@ -1,26 +1,26 @@
 GIT
   remote: https://github.com/ramiroaraujo/image_optim.git
-  revision: c3cc2aaf8a9f6d04762c7072d526a3d1bbbebdfb
-  branch: compression-methods-for-jpeg-compress
+  revision: e15b61abd7446ab5c53066da64f96d874fd98a72
+  branch: master
   specs:
-    image_optim (0.21.0)
+    image_optim (0.26.4)
       exifr (~> 1.2, >= 1.2.2)
-      fspath (~> 2.1)
-      image_size (~> 1.3)
+      fspath (~> 3.0)
+      image_size (>= 1.5, < 3)
       in_threads (~> 1.3)
       progress (~> 3.0, >= 3.0.1)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    exifr (1.2.3.1)
-    fspath (2.1.1)
-    image_optim_pack (0.2.1.20150808)
-      fspath (~> 2.1)
+    exifr (1.3.6)
+    fspath (3.1.1)
+    image_optim_pack (0.5.3)
+      fspath (>= 2.1, < 4)
       image_optim (~> 0.19)
-    image_size (1.4.1)
-    in_threads (1.3.1)
-    progress (3.1.0)
+    image_size (2.0.1)
+    in_threads (1.5.2)
+    progress (3.5.1)
 
 PLATFORMS
   ruby
@@ -30,4 +30,4 @@ DEPENDENCIES
   image_optim_pack
 
 BUNDLED WITH
-   1.10.6
+   2.0.1

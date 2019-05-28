@@ -1,0 +1,29 @@
+version: '{build}-{branch}'
+install:
+  - set PATH=C:\Ruby25-x64\bin;%PATH%
+  - ruby --version
+  - gem --version
+  - bundle package --all
+build: off
+test_script:
+  - ps: |
+      $path = $env:Path
+      $rubypaths = ls -Path C:\Ruby*\bin
+      foreach ($rubypath in $rubypaths) {
+        $env:Path = "$rubypath;" + $path
+        ruby -e "abort unless RUBY_VERSION > '2.3'"
+        if ($LASTEXITCODE -gt 0) {
+          continue
+        }
+
+        echo "################################ $rubypath ################################"
+        ruby --version
+        gem --version
+        bundle package --all
+        bundle install --local -j4
+        bundle exec rspec
+        if ($LASTEXITCODE -gt 0) {
+          exit 1
+        }
+      }
+      $env:Path = $path
